@@ -1545,6 +1545,74 @@ section { position: relative; max-width: 100vw; }
 .ask-stat-value.cyan-val { color: var(--cyan); }
 .ask-stat-value.yellow-val { color: var(--yellow); }
 
+/* Capital allocation breakdown */
+.ask-alloc {
+  margin-top: 1.75rem;
+  max-width: 460px;
+}
+.ask-alloc-bar {
+  display: flex;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--inset, hsla(0,0%,100%,0.05));
+  margin-bottom: 1.25rem;
+}
+.ask-alloc-seg {
+  height: 100%;
+}
+.ask-alloc-seg.ops { width: 80%; background: var(--cyan); }
+.ask-alloc-seg.reserve { width: 20%; background: var(--yellow); }
+.ask-alloc-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+.ask-alloc-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+.ask-alloc-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transform: translateY(1px);
+}
+.ask-alloc-dot.ops { background: var(--cyan); }
+.ask-alloc-dot.reserve { background: var(--yellow); }
+.ask-alloc-amt {
+  font-family: "Bricolage Grotesque", serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+.ask-alloc-amt.ops { color: var(--cyan); }
+.ask-alloc-amt.reserve { color: var(--yellow); }
+.ask-alloc-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+.ask-terms {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.ask-term {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+.ask-term b {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
 .ask-cta-group {
   display: flex;
   gap: 1rem;
@@ -2485,7 +2553,6 @@ footer {
     <a href="electrofit_investor_memo.html">Memo</a>
     <a href="#ask">Invest</a>
   </div>
-  <a href="#ask" class="nav-cta">Get the Suit</a>
 </nav>
 
 <!-- ============================================================
@@ -3115,12 +3182,31 @@ footer {
       <div>
         <div class="eyebrow" style="margin-bottom: 1.25rem;">05 · The Investment</div>
         <h2 class="ask-title">Series A.<br>Preferred Equity.</h2>
-        <p class="body-l" style="margin-top: 1.5rem; max-width: 460px;">
-          $25M Year 1 operating capital. $5M strategic reserve. Target close October 2026.
-        </p>
+        <div class="ask-alloc">
+          <div class="ask-alloc-bar">
+            <span class="ask-alloc-seg ops"></span>
+            <span class="ask-alloc-seg reserve"></span>
+          </div>
+          <div class="ask-alloc-rows">
+            <div class="ask-alloc-row">
+              <span class="ask-alloc-dot ops"></span>
+              <span class="ask-alloc-amt ops">$40M</span>
+              <span class="ask-alloc-desc">Operating capital — funds the plan through Year 3 EBITDA-positive.</span>
+            </div>
+            <div class="ask-alloc-row">
+              <span class="ask-alloc-dot reserve"></span>
+              <span class="ask-alloc-amt reserve">$10M</span>
+              <span class="ask-alloc-desc">Strategic reserve — buffer against timing and execution risk.</span>
+            </div>
+          </div>
+          <div class="ask-terms">
+            <span class="ask-term">Released in <b>milestone tranches</b></span>
+            <span class="ask-term">Target close <b>Oct 2026</b></span>
+          </div>
+        </div>
       </div>
       <div class="ask-amount">
-        <span class="currency">$</span><span data-counter-large="30">0</span><span class="suffix">M</span>
+        <span class="currency">$</span><span data-counter-large="50">0</span><span class="suffix">M</span>
       </div>
     </div>
 
